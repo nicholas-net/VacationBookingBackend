@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,7 +23,7 @@ public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cart_item_id")
+    @Column(name = "cart_item_id", nullable = false)
     private Long id;
 
     @ManyToOne
@@ -30,7 +31,7 @@ public class CartItem {
     private Vacation vacation;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id")
+    @JoinColumn(name = "cart_id",  nullable = false)
     private Cart cart;
 
     @Column(name = "create_date")
@@ -41,7 +42,7 @@ public class CartItem {
     @UpdateTimestamp
     private Date last_update;
 
-    @ManyToMany
-    private Set<Excursion> excursions;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Excursion> excursions = new HashSet<>();
 
 }

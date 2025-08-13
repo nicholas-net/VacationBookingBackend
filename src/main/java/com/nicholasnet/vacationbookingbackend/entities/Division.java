@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,7 +22,7 @@ public class Division {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "division_id")
+    @Column(name = "division_id", nullable = false)
     private Long id;
 
     @Column(name = "division")
@@ -35,15 +36,19 @@ public class Division {
     @Column(name = "last_update")
     private Date last_update;
 
-    @ManyToOne
-    @JoinColumn(name = "country_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
     private Country country;
 
-    @OneToMany(mappedBy = "division")
-    private Set<Customer> customers;
+    @OneToMany(mappedBy = "division", cascade = CascadeType.ALL)
+    private Set<Customer> customers = new HashSet<>();
 
+    // Fixes issue where the front end isn't being populated by providing it with the country id
+    @Column(name = "country_id")
+    private Long country_id;
     public void setCountry(Country country) {
+        setId(country.getId());
         this.country = country;
-    } // FIX ME
+    }
 
 }

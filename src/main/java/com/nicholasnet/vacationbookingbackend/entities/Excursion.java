@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -23,7 +24,7 @@ public class Excursion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "excursion_id")
+    @Column(name = "excursion_id", nullable = false)
     private Long id;
 
     @Column(name = "excursion_title")
@@ -44,9 +45,9 @@ public class Excursion {
     private Date last_update;
 
     @ManyToOne
-    @JoinColumn(name = "vacation_id")
+    @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
-    @ManyToMany
-    private Set<CartItem> cartItems;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<CartItem> cartItems = new HashSet<>();
 }

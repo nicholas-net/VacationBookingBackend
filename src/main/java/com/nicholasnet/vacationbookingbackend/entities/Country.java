@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -35,7 +36,7 @@ public class Country {
     @Column(name = "last_update")
     private Date lastUpdate;
 
-    @OneToMany(mappedBy = "country")
-    private Set<Division> divisions;
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
+    private Set<Division> divisions = new HashSet<>();
 
 }

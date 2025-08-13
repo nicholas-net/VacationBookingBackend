@@ -6,10 +6,12 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.crossstore.HashMapChangeSet;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -22,7 +24,7 @@ public class Vacation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "vacation_id")
+    @Column(name = "vacation_id", nullable = false)
     private Long id;
 
     @Column(name = "vacation_title")
@@ -45,7 +47,7 @@ public class Vacation {
     @Column(name = "last_update")
     private Date last_update;
 
-    @OneToMany(mappedBy = "vacation")
-    private Set<Excursion> excursions;
+    @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL)
+    private Set<Excursion> excursions = new HashSet<>();
 
 }

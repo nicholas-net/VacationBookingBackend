@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 
 import java.sql.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -21,7 +22,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
+    @Column(name = "customer_id", nullable = false)
     private Long id;
 
     @Column(name = "customer_first_name")
@@ -51,7 +52,7 @@ public class Customer {
     @JoinColumn(name = "division_id")
     private Division division;
 
-    @OneToMany(mappedBy = "customer")
-    private Set<Cart> cart;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private Set<Cart> cart = new HashSet<>();
 
 }
