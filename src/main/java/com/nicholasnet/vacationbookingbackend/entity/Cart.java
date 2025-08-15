@@ -52,7 +52,7 @@ public class Cart {
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
     private Set<CartItem> cartItems;
 
-    public void addCartItem(CartItem item) {
+    public void add(CartItem item) {
 
         cartItems = new HashSet<>();
 
