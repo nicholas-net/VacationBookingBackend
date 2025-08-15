@@ -11,6 +11,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -27,26 +28,29 @@ public class CheckoutServiceImpl implements CheckoutService {
     @Transactional
     public PurchaseResponse placeOrder(Purchase purchase) {
 
-            // extracts cart object from purchase
-            Cart cart = purchase.getCart();
+        // extracts cart object from purchase
+        Cart cart = purchase.getCart();
 
-            cart.setStatus(StatusType.ordered);
+        // cart status ordered
+        cart.setStatus(StatusType.ordered);
 
-            String orderTrackingNumber = generateOrderTrackingNumber();
-            cart.setOrderTrackingNumber(orderTrackingNumber);
+        // sets tracking number for the cart
+        String orderTrackingNumber = generateOrderTrackingNumber();
+        cart.setOrderTrackingNumber(orderTrackingNumber);
 
-            // populate cart with cart items
-            Set <CartItem> cartItems = purchase.getCartItems();
-            cartItems.forEach(cart::addCartItem);
+        // populate cart with cart items
+        Set <CartItem> cartItems = purchase.getCartItems();
+        cartItems.forEach(cart::add);
 
-            // populate customer with cart
-            Customer customer = purchase.getCustomer();
-            customer.addCart(cart);
+        // populate customer with cart
+        Customer customer = purchase.getCustomer();
+        customer.add(cart);
 
-            // save to the database
-            customerRepository.save(customer);
+        // save customer to repository for storage
+        customerRepository.save(customer);
 
-            return new PurchaseResponse(orderTrackingNumber);
+        return new PurchaseResponse(orderTrackingNumber);
+
 
     }
 
