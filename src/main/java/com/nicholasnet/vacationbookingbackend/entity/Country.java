@@ -1,13 +1,12 @@
-package com.nicholasnet.vacationbookingbackend.entities;
+package com.nicholasnet.vacationbookingbackend.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.stereotype.Component;
+
 import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -37,6 +36,6 @@ public class Country {
     private Date lastUpdate;
 
     @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
-    private Set<Division> divisions = new HashSet<>();
+    private Set<Division> divisions;
 
 }

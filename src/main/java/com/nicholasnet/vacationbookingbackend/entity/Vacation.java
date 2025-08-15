@@ -1,4 +1,4 @@
-package com.nicholasnet.vacationbookingbackend.entities;
+package com.nicholasnet.vacationbookingbackend.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.crossstore.HashMapChangeSet;
-import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -48,6 +46,6 @@ public class Vacation {
     private Date last_update;
 
     @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL)
-    private Set<Excursion> excursions = new HashSet<>();
+    private Set<Excursion> excursions;
 
 }

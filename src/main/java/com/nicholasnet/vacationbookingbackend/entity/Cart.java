@@ -1,7 +1,6 @@
-package com.nicholasnet.vacationbookingbackend.entities;
+package com.nicholasnet.vacationbookingbackend.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -51,6 +50,17 @@ public class Cart {
     private Customer customer;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
-    private Set<CartItem> cartItems = new HashSet<>();
+    private Set<CartItem> cartItems;
 
+    public void addCartItem(CartItem item) {
+
+        cartItems = new HashSet<>();
+
+        if (item != null) {
+            this.cartItems.add(item);
+            item.setCart(this);
+        }
+
+
+    }
 }

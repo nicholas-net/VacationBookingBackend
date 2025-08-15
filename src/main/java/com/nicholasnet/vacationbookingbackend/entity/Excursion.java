@@ -1,13 +1,11 @@
-package com.nicholasnet.vacationbookingbackend.entities;
+package com.nicholasnet.vacationbookingbackend.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.sql.Date;

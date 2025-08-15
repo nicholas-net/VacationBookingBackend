@@ -1,12 +1,10 @@
-package com.nicholasnet.vacationbookingbackend.entities;
+package com.nicholasnet.vacationbookingbackend.entity;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.util.HashSet;
@@ -53,6 +51,16 @@ public class Customer {
     private Division division;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<Cart> cart = new HashSet<>();
+    private Set<Cart> cart;
 
+    public void addCart(Cart customer_cart) {
+
+        cart = new HashSet<>();
+
+        if (customer_cart != null) {
+            this.cart.add(customer_cart);
+            customer_cart.setCustomer(this);
+        }
+
+    }
 }

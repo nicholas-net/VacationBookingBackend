@@ -1,6 +1,6 @@
 package com.nicholasnet.vacationbookingbackend.dao;
 
-import com.nicholasnet.vacationbookingbackend.entities.Vacation;
+import com.nicholasnet.vacationbookingbackend.entity.Vacation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 

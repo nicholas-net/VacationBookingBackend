@@ -1,7 +1,6 @@
-package com.nicholasnet.vacationbookingbackend.entities;
+package com.nicholasnet.vacationbookingbackend.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -41,7 +40,7 @@ public class Division {
     private Country country;
 
     @OneToMany(mappedBy = "division", cascade = CascadeType.ALL)
-    private Set<Customer> customers = new HashSet<>();
+    private Set<Customer> customers;
 
     // Fixes issue where the front end isn't being populated by providing it with the country id
     @Column(name = "country_id")
