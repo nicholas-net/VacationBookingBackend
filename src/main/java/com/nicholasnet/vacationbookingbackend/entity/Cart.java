@@ -1,6 +1,7 @@
 package com.nicholasnet.vacationbookingbackend.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,13 +17,14 @@ import java.util.Set;
 @Table(name = "carts")
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 
 public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cart_id", nullable = false)
+    @Column(name = "cart_id")
     private Long id;
 
     @Column(name = "order_tracking_number")
@@ -35,6 +37,7 @@ public class Cart {
     private int party_size;
 
     @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     private StatusType status;
 
     @Column(name = "create_date")
@@ -46,7 +49,7 @@ public class Cart {
     private Date last_update;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)

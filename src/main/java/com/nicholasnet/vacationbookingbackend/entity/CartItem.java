@@ -1,6 +1,7 @@
 package com.nicholasnet.vacationbookingbackend.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,13 +16,14 @@ import java.util.Set;
 @Table(name = "cart_items")
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 
 public class CartItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cart_item_id", nullable = false)
+    @Column(name = "cart_item_id")
     private Long id;
 
     @ManyToOne
@@ -29,7 +31,7 @@ public class CartItem {
     private Vacation vacation;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id",  nullable = false)
+    @JoinColumn(name = "cart_id")
     private Cart cart;
 
     @Column(name = "create_date")
@@ -41,6 +43,7 @@ public class CartItem {
     private Date last_update;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Excursion> excursions;
+    @JoinTable(name = "excursion_cartitem", joinColumns = @JoinColumn(name = "cart_item_id"), inverseJoinColumns = @JoinColumn(name = "excursion_id"))
+    private Set<Excursion> excursions = new HashSet<>();
 
 }

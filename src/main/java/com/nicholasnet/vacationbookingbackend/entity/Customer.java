@@ -1,5 +1,6 @@
 package com.nicholasnet.vacationbookingbackend.entity;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.util.Set;
 @Table(name = "customers")
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 
 public class Customer {
@@ -47,8 +49,8 @@ public class Customer {
     private Date lastUpdate;
 
     @ManyToOne
-    @JoinColumn(name = "division_id", nullable = false)
-    private Division division;
+    @JoinColumn(name = "division_id")
+    private Division division_id;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> cart;

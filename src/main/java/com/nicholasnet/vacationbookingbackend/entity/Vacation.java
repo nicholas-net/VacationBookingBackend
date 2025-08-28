@@ -1,6 +1,7 @@
 package com.nicholasnet.vacationbookingbackend.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,13 +17,14 @@ import java.util.Set;
 @Table(name = "vacations")
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
 
 public class Vacation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "vacation_id", nullable = false)
+    @Column(name = "vacation_id")
     private Long id;
 
     @Column(name = "vacation_title")
