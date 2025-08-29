@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -41,11 +42,11 @@ public class Vacation {
 
     @CreationTimestamp
     @Column(name = "create_date")
-    private Date create_date;
+    private Timestamp create_date;
 
     @UpdateTimestamp
     @Column(name = "last_update")
-    private Date last_update;
+    private Timestamp last_update;
 
     @OneToMany(mappedBy = "vacation", cascade = CascadeType.ALL)
     private Set<Excursion> excursions;

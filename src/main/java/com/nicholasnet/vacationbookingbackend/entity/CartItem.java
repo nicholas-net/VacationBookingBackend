@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,11 +37,11 @@ public class CartItem {
 
     @Column(name = "create_date")
     @CreationTimestamp
-    private Date create_date;
+    private Timestamp create_date;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    private Date last_update;
+    private Timestamp last_update;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "excursion_cartitem", joinColumns = @JoinColumn(name = "cart_item_id"), inverseJoinColumns = @JoinColumn(name = "excursion_id"))

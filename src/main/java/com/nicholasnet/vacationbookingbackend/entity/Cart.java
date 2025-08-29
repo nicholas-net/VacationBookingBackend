@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -42,11 +43,11 @@ public class Cart {
 
     @Column(name = "create_date")
     @CreationTimestamp
-    private Date create_date;
+    private Timestamp create_date;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    private Date last_update;
+    private Timestamp last_update;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")

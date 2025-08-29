@@ -10,6 +10,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,17 +39,16 @@ public class Excursion {
 
     @CreationTimestamp
     @Column(name = "create_date")
-    private Date create_date;
+    private Timestamp create_date;
 
     @LastModifiedDate
     @Column(name = "last_update")
-    private Date last_update;
+    private Timestamp last_update;
 
     @ManyToOne
     @JoinColumn(name = "vacation_id", nullable = false)
     private Vacation vacation;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "excursion_cartitem", joinColumns = @JoinColumn(name = "excursion_id"), inverseJoinColumns = @JoinColumn(name = "cart_item_id"))
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "excursions")
     private Set<CartItem> cartItems = new HashSet<>();
 }

@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -42,11 +43,11 @@ public class Customer {
 
     @Column(name = "create_date")
     @CreationTimestamp
-    private Date createDate;
+    private Timestamp createDate;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    private Date lastUpdate;
+    private Timestamp lastUpdate;
 
     @ManyToOne
     @JoinColumn(name = "division_id")
