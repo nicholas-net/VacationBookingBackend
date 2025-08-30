@@ -10,4 +10,5 @@ public class VacationBookingBackendApplication {
         SpringApplication.run(VacationBookingBackendApplication.class, args);
     }
 
+
 }

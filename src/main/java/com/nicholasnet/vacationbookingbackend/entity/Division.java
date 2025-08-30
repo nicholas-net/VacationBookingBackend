@@ -45,12 +45,11 @@ public class Division {
     @OneToMany(mappedBy = "division_id", cascade = CascadeType.ALL)
     private Set<Customer> customers;
 
-    // Fixes issue where the front end isn't being populated by providing it with the country id
     @Column(name = "country_id")
     private Long country_id;
     public void setCountry(Country country) {
-        setId(country.getId());
         this.country = country;
+        this.country_id = country.getId();
     }
 
 }

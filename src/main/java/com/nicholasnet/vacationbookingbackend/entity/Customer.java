@@ -16,7 +16,6 @@ import java.util.Set;
 @Table(name = "customers")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 
 public class Customer {
@@ -54,7 +53,16 @@ public class Customer {
     private Division division_id;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
-    private Set<Cart> cart;
+    private Set<Cart> cart = new HashSet<>();
+
+    public Customer(String firstName, String lastName, String address, String postalCode, String phone, Division division) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.postal_code = postalCode;
+        this.phone = phone;
+        this.division_id = division;
+    }
 
     public void add(Cart customer_cart) {
 
