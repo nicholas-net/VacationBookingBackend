@@ -1,1 +1,77 @@
+<a id="readme-top"></a>
+
+<!-- PROJECT LOGO -->
+<br />
+
+<h1 align="center">Vacation Booking Backend 🌴</h1>
+
+<p align="center">
+  A Spring Boot backend for a travel agency vacation booking application, integrated with MySQL and an existing Angular front-end.
+</p>
+
+---
+
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+---
+
+## About The Project
+
+This project is a **modern Java Spring Boot backend** for a travel agency's vacation booking system. The backend replaces a legacy system and provides RESTful APIs to handle customer checkouts, vacation package orders, and order tracking.  
+
+The backend integrates with:  
+- A **MySQL database** for persistence  
+- An **Angular front-end**
+
+The application demonstrates **object-oriented programming**, **Spring framework usage**, **data validation**, and **integration with relational databases**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+### Built With
+
+Java, Spring Boot, MySQL
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+---
+
+## Getting Started
+
+Follow these steps to get a local copy running. 📝
+
+### Prerequisites
+* Java 17+
+* Maven or Gradle
+* MySQL server
+
+### Installation
+
+1. Clone the repository:
+2. Copy the provided application.properties into src/main/resources.
+
+```sh
+git clone https://github.com/your_username/vacation-booking-backend.git
+cd vacation-booking-backend
 
