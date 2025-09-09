@@ -37,7 +37,7 @@
 
 ## About The Project
 
-This project is a **modern Java Spring Boot backend** for a travel agency's vacation booking system. The backend replaces a legacy system and provides RESTful APIs to handle customer checkouts, vacation package orders, and order tracking.  
+This project serves as an exercise in building a modern back-end API using Spring Boot. It demonstrates object-oriented design, integration with a relational database (MySQL), and implementation of design patterns for a scalable architecture. The project also provides practice with RESTful API development, data validation, and connecting a Java back-end to an Angular front-end. 
 
 The backend integrates with:  
 - A **MySQL database** for persistence  
