@@ -69,9 +69,31 @@ Follow these steps to get a local copy running. 📝
 ### Installation
 
 1. Clone the repository:
-2. Copy the provided application.properties into src/main/resources.
+
 
 ```sh
-git clone https://github.com/your_username/vacation-booking-backend.git
+git clone https://github.com/your_username/VacationBookingBackend.git
 cd vacation-booking-backend
+```
+2. Copy the provided application.properties into src/main/resources.
+3. Build the project:
+
+```sh
+mvc clean install
+```
+or 
+```sh
+./gradlew build
+```
+4. Run the application
+```sh
+mvn spring-boot:run
+```
+or 
+```sh
+./gradlew bootRun
+```
+
+
+
 
