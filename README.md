@@ -51,7 +51,10 @@ The application demonstrates **object-oriented programming**, **Spring framework
 
 ### Built With
 
-Java, Spring Boot, MySQL
+[![Windows][Windows-badge]][Windows-url]
+[![Java][Java-badge]][Java-url]
+[![SpringBoot][SpringBoot-badge]][SpringBoot-url]
+[![MySQL][MySQL-badge]][MySQL-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -93,6 +96,17 @@ or
 ```sh
 ./gradlew bootRun
 ```
+[MySQL-badge]: https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white
+[MySQL-url]: https://www.mysql.com/
+
+[Java-badge]: https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
+[Java-url]: https://www.java.com/
+
+[SpringBoot-badge]: https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white
+[SpringBoot-url]: https://spring.io/projects/spring-boot
+
+[Windows-badge]: https://img.shields.io/badge/OS-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white
+[Windows-url]: https://www.microsoft.com/windows
 
 
 
