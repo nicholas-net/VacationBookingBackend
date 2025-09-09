@@ -9,7 +9,6 @@
   A Spring Boot backend for a travel agency vacation booking application, integrated with MySQL and an existing Angular front-end.
 </p>
 
----
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -33,7 +32,6 @@
   </ol>
 </details>
 
----
 
 ## About The Project
 
@@ -47,7 +45,6 @@ The application demonstrates **object-oriented programming**, **Spring framework
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 ### Built With
 
@@ -58,11 +55,10 @@ The application demonstrates **object-oriented programming**, **Spring framework
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
----
 
 ## Getting Started
 
-Follow these steps to get a local copy running. 📝
+Follow these steps to get a local copy running 📝
 
 ### Prerequisites
 * Java 17+
